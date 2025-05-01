@@ -16,7 +16,7 @@ ps= cell(1,1001);
 counterA = 1 ;
 %Tilt axis : in this case y axis
 pivot = 'Y';
-for angle = -90:0.18:90
+for angle = -90:180:90
 %     % Extract the projection slice 
     projectionSlice = ExtractProjectionSliceFromUnifiedVolume ... 
                                 (realVolume, imagVolume, N, pivot, angle);
@@ -38,6 +38,9 @@ for angle = -90:0.18:90
     figure(2);
     subplot(1,2,1),imshow((projection)* 1e-3),title('Pure Projections');
     subplot(1,2,2),imshow(ShiftedNoisyProjectionscale),title('SN Projections');
+
+    imwrite(projection, '/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/test2.png');
+    imwrite(ShiftedNoisyProjectionscale, '/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/test1.png');
 % for saving projections one can turn off 34 to 37 and turn on 39 and 40
 %     snpY = imshow(ShiftedNoisyProjectionscale);
 %     saveas(snpY,sprintf('SNP_Y_%d.png',angle)); 
