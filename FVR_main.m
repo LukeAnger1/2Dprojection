@@ -16,36 +16,42 @@ ps= cell(1,1001);
 counterA = 1 ;
 %Tilt axis : in this case y axis
 pivot = 'Y';
-for angle = -90:180:90
-%     % Extract the projection slice 
+for angle = -90:0.18:90
+    % Extract the projection slice 
     projectionSlice = ExtractProjectionSliceFromUnifiedVolume ... 
                                 (realVolume, imagVolume, N, pivot, angle);
-%     % Backtransforming the slice to the spatial domain to yield the 
-%     % projection followed by 2D FFT-shift for the projection. 
+    % Backtransforming the slice to the spatial domain to yield the 
+    % projection followed by 2D FFT-shift for the projection. 
     projection = fftshift(abs(ifft2(projectionSlice)));
-	%adding noise using agwn function
+    %adding noise using agwn function
     NoisyProjectionY = awgn(projection,15,'measured'); 
-	%shifting the projection by adding a random number between [ 0.01]
+    %shifting the projection by adding a random number between [ 0.01]
     ShiftedNoisyProjectionY = NoisyProjectionY + ((0.01).*rand(1));
     %scale projection in coordinate
     ShiftedNoisyProjectionscale = (NoisyProjectionY + ((0.01).*rand(1)))* 1e-3;
     snps{counterC} = ShiftedNoisyProjectionscale;
     counterC = counterC +1 ;
-	%correcting the scale of representing
+    %correcting the scale of representing
     ps{counterA} = projection*1e-3;
     counterA = counterA +1 ;
+    
+    % Generate a filename with the angle value
+    % Convert angle to string with proper formatting
+    angleStr = sprintf('%+06.2f', angle); % Format: +00.00 or -00.00
+    
+    % Display figures
     figure(1);
     figure(2);
     subplot(1,2,1),imshow((projection)* 1e-3),title('Pure Projections');
     subplot(1,2,2),imshow(ShiftedNoisyProjectionscale),title('SN Projections');
 
-    imwrite(projection, '/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/test2.png');
-    imwrite(ShiftedNoisyProjectionscale, '/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/test1.png');
-% for saving projections one can turn off 34 to 37 and turn on 39 and 40
-%     snpY = imshow(ShiftedNoisyProjectionscale);
-%     saveas(snpY,sprintf('SNP_Y_%d.png',angle)); 
+    % Save each projection with unique filenames including the angle
+    pureFilename = sprintf('/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/pure_projection_%s.png', angleStr);
+    noisyFilename = sprintf('/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/noisy_projection_%s.png', angleStr);
+    
+    imwrite(projection*1e-3, pureFilename);
+    imwrite(ShiftedNoisyProjectionscale, noisyFilename);
      
 end
 save(['snps','.mat'],'snps');
-
-
+save(['ps','.mat'],'ps'); % Also save the pure projections
