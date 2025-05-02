@@ -16,7 +16,7 @@ ps= cell(1,1001);
 counterA = 1 ;
 %Tilt axis : in this case y axis
 pivot = 'Y';
-for angle = -90:0.18:90
+for angle = -90:15:90
     % Extract the projection slice 
     projectionSlice = ExtractProjectionSliceFromUnifiedVolume ... 
                                 (realVolume, imagVolume, N, pivot, angle);
@@ -46,8 +46,8 @@ for angle = -90:0.18:90
     subplot(1,2,2),imshow(ShiftedNoisyProjectionscale),title('SN Projections');
 
     % Save each projection with unique filenames including the angle
-    pureFilename = sprintf('/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/pure_projection_%s.png', angleStr);
-    noisyFilename = sprintf('/home/maslab-clown-penis/Desktop/I am going to do it myself/2Dprojection/noisy_projection_%s.png', angleStr);
+    pureFilename = sprintf('/home/rick/Desktop/2Dprojection/pure_projection_%s.png', angleStr);
+    noisyFilename = sprintf('/home/rick/Desktop/2Dprojection/noisy_projection_%s.png', angleStr);
     
     imwrite(projection*1e-3, pureFilename);
     imwrite(ShiftedNoisyProjectionscale, noisyFilename);
