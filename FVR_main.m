@@ -15,7 +15,7 @@ counterC = 1 ;
 ps= cell(1,1001); 
 counterA = 1 ;
 %Tilt axis : in this case y axis
-pivot = 'Y';
+pivot = [0.70710678118, 0.70710678118, 0];
 for angle = -90:15:90
     % Extract the projection slice 
     projectionSlice = ExtractProjectionSliceFromUnifiedVolume ... 

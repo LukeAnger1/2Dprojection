@@ -1,6 +1,6 @@
 
 function [sliceData] = ExtractSliceFromUnifiedVolume ...
-                                        (volume, N, rotationAxis, angle)
+                                        (volume, N, rotationVector, angle)
 
 % Construct the mesh grid for sampling the volume 
 meshN = -(N / 2):1:(N / 2) - 1;
@@ -13,15 +13,8 @@ figure(1);
 slicePlane = surf(sliceExtent, sliceExtent, zeros((N), (N)));
 % Adjust the rotation of the slice through the volume. 
 % By defult, it assumes a Y-axis rotation
-if (rotationAxis == 'X' || rotationAxis == 'x')
-    rotate(slicePlane, [1,0,0], angle);
-elseif (rotationAxis == 'Y' || rotationAxis == 'y')
-    rotate(slicePlane, [0,1,0], angle);
-elseif (rotationAxis == 'Z' || rotationAxis == 'z')
-    rotate(slicePlane, [0,0,1], angle);
-else
-    rotate(slicePlane, [0,1,0], angle);
-end
+rotate(slicePlane, rotationVector, angle);
+
 % Get the slice indexes.
 xData =  get(slicePlane,'XData');
 yData =  get(slicePlane,'YData');

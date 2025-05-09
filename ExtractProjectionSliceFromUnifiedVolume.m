@@ -1,11 +1,11 @@
 
 function [complexSlice] = ExtractProjectionSliceFromUnifiedVolume ... 
-                          (realVolume, imagVolume, N, rotationAxis, angle)
+                          (realVolume, imagVolume, N, rotationVector, angle)
                       
 realData = ExtractSliceFromUnifiedVolume ...
-                                    (realVolume, N, rotationAxis, angle);
+                                    (realVolume, N, rotationVector, angle);
 imagData = ExtractSliceFromUnifiedVolume ...
-                                    (imagVolume, N, rotationAxis, angle);
+                                    (imagVolume, N, rotationVector, angle);
 
 % Build the complex slice
 complexSlice = zeros(N, N);
