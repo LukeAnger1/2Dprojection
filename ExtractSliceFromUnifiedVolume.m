@@ -9,7 +9,7 @@ meshN = -(N / 2):1:(N / 2) - 1;
 % Build a surface with size equal to the final slice size
 % NOTE: This function assumes a unified volume. 
 sliceExtent = linspace(-N / 2, N / 2 , N);
-figure(1);
+
 slicePlane = surf(sliceExtent, sliceExtent, zeros((N), (N)));
 % Adjust the rotation of the slice through the volume. 
 % By defult, it assumes a Y-axis rotation
