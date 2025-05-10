@@ -1,5 +1,5 @@
 % Set cube size
-N = 64;  % You can change this as needed
+N = 256;  % You can change this as needed
 
 % Define the pivot for rotation stuff
 pivot = [1, -2, -1];

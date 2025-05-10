@@ -8,7 +8,7 @@ function [projection] = one_run_main(realVolume, imagVolume, N, pivot, angle)
         
         % Format angle string for filename
         angleStr = sprintf('%+06.2f', angle);  % Format: +00.00 or -00.00
-        pureFilename = sprintf('/home/rick/Desktop/2Dprojection/pure_projection_%s.png', angleStr);
+        pureFilename = sprintf('/home/rick/Desktop/2Dprojection/data/3. rotating cube with face/pure_projection_%s.png', angleStr);
         
         % stupid scaling
         projection = projection * 1e-3;
