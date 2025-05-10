@@ -8,7 +8,7 @@ imagData = ExtractSliceFromUnifiedVolume ...
                                     (imagVolume, N, rotationVector, angle);
 
 % Build the complex slice
-complexSlice = zeros(N, N);
+complexSlice = complex(zeros(N, N));
 for ii = 1:1:N
     for jj = 1:1:N
         complexSlice(ii,jj) = (realData(ii, jj)) + (imagData(ii, jj))* 1i;

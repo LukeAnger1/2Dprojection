@@ -36,9 +36,4 @@ function [realVolume, imagVolume] = initialize_main (N)
     % Split the volume into real and imaginary components
     [realVolume, imagVolume] = SplitComplexVolume(spectrum, N, N, N);
 
-    % Initialize containers
-    snps = cell(1, 1001); 
-    counterC = 1;
-    ps = cell(1, 1001); 
-    counterA = 1;
 end

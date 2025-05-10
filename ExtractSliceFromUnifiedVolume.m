@@ -1,7 +1,7 @@
 function [sliceData] = ExtractSliceFromUnifiedVolume(volume, N, rotationVector, angle)
     % Create meshgrid for the volume
     meshN = -(N / 2):1:(N / 2) - 1;
-    [x, y, z] = meshgrid(meshN, meshN, meshN);
+    [~, ~, ~] = meshgrid(meshN, meshN, meshN);
     
     % Create a grid for the slice (initially in xy-plane, z=0)
     [xGrid, yGrid] = meshgrid(meshN, meshN);
