@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2024a">
-  <configuration build-checksum="3689456408" file="/home/rick/Desktop/2Dprojection/render.prj" location="/home/rick/Desktop/2Dprojection" name="render" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="1527053381" file="/home/rick/Desktop/2Dprojection/render.prj" location="/home/rick/Desktop/2Dprojection" name="render" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex />
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -298,11 +298,11 @@
       <param.CodeReplacementLibrary>None</param.CodeReplacementLibrary>
       <param.DeprecatedCRLFlag>false</param.DeprecatedCRLFlag>
       <param.SameHardware>true</param.SameHardware>
-      <param.Toolchain>Automatically locate an installed toolchain</param.Toolchain>
+      <param.Toolchain>CMake</param.Toolchain>
       <param.BuildConfiguration>Faster Runs</param.BuildConfiguration>
       <param.CustomToolchainOptions />
       <var.ToolchainSettingsVisible>true</var.ToolchainSettingsVisible>
-      <var.ToolchainSupportsBuildConfigurations>true</var.ToolchainSupportsBuildConfigurations>
+      <var.ToolchainSupportsBuildConfigurations>false</var.ToolchainSupportsBuildConfigurations>
       <param.target.Data>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;ctdata&gt;&lt;configuredHardware/&gt;&lt;/ctdata&gt;</param.target.Data>
       <param.target.ActiveType>option.target.TargetType.Custom</param.target.ActiveType>
       <param.target.ActiveTarget />
@@ -518,7 +518,6 @@
         <param.CodeReplacementLibrary />
         <param.DeprecatedCRLFlag />
         <param.SameHardware />
-        <param.Toolchain />
         <param.BuildConfiguration />
         <param.CustomToolchainOptions />
         <var.ToolchainSettingsVisible />
@@ -646,11 +645,11 @@
     <param.hdlParamStorage />
     <var.gc.lastOutputRoot>codegen/lib/render</var.gc.lastOutputRoot>
     <var.gc.lastOutputType>C_CODE</var.gc.lastOutputType>
-    <var.gc.preBuildChecksum>3689456408</var.gc.preBuildChecksum>
+    <var.gc.preBuildChecksum>1527053381</var.gc.preBuildChecksum>
     <var.cfi.lastOutputRoot />
     <var.cfi.preBuildChecksum />
     <var.outdatedOnRestore>false</var.outdatedOnRestore>
-    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/ExtractProjectionSliceFromUnifiedVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/ExtractSliceFromUnifiedVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/SplitComplexVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/initialize_main.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/one_run_main.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;2959093273&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
+    <var.lastUserSourceChecksum>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;checksum&gt;&lt;includedFiles&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/ExtractProjectionSliceFromUnifiedVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/ExtractSliceFromUnifiedVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/SplitComplexVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/initialize_main.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/one_run_main.m&lt;/file&gt;&lt;/includedFiles&gt;&lt;value&gt;1888188065&lt;/value&gt;&lt;/checksum&gt;</var.lastUserSourceChecksum>
     <var.sourceSetState>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;sourceModel&gt;&lt;primarySourceFiles&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/ExtractProjectionSliceFromUnifiedVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/ExtractSliceFromUnifiedVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/SplitComplexVolume.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/initialize_main.m&lt;/file&gt;&lt;file&gt;/home/rick/Desktop/2Dprojection/one_run_main.m&lt;/file&gt;&lt;/primarySourceFiles&gt;&lt;fixedPointSourceFiles/&gt;&lt;fixedPointSourceRegistered&gt;false&lt;/fixedPointSourceRegistered&gt;&lt;fixedPointSourceSelected&gt;false&lt;/fixedPointSourceSelected&gt;&lt;/sourceModel&gt;</var.sourceSetState>
     <param.forceMexBuild>false</param.forceMexBuild>
     <param.NoDefaultJIT>false</param.NoDefaultJIT>
@@ -712,7 +711,7 @@
     <param.cmsis-nn.DataType>option.arm-compute.datatype.int8</param.cmsis-nn.DataType>
     <param.cmsis-nn.CalibrationResultFile />
     <param.none.LearnablesCompression>option.none.LearnablesCompression.None</param.none.LearnablesCompression>
-    <var.ToolchainCanRunBuildArtifact>true</var.ToolchainCanRunBuildArtifact>
+    <var.ToolchainCanRunBuildArtifact>false</var.ToolchainCanRunBuildArtifact>
     <param.TargetLang>option.TargetLang.C</param.TargetLang>
     <param.EnableAutoExtrinsicCalls>true</param.EnableAutoExtrinsicCalls>
     <param.EnableImplicitExpansion>true</param.EnableImplicitExpansion>
