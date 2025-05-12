@@ -1,0 +1,7 @@
+CMakeFiles/static_c.dir/rtGetInf.c.o: \
+ /home/rick/Desktop/2Dprojection/codegen/lib/static_c/rtGetInf.c \
+ /usr/include/stdc-predef.h \
+ /home/rick/Desktop/2Dprojection/codegen/lib/static_c/rtGetInf.h \
+ /home/rick/Desktop/2Dprojection/codegen/lib/static_c/rtwtypes.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
+ /home/rick/Desktop/2Dprojection/codegen/lib/static_c/rt_nonfinite.h
