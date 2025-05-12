@@ -1,3 +1,0 @@
-/home/rick/Desktop/2Dprojection/codegen/lib/static_c/CMakeFiles/static_c.dir
-/home/rick/Desktop/2Dprojection/codegen/lib/static_c/CMakeFiles/edit_cache.dir
-/home/rick/Desktop/2Dprojection/codegen/lib/static_c/CMakeFiles/rebuild_cache.dir
