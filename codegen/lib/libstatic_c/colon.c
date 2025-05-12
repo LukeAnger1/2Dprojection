@@ -51,7 +51,7 @@ void eml_float_colon(double a, double b, emxArray_real_T *y)
     y_data[0] = a;
     if (n > 1) {
       y_data[n - 1] = apnd;
-      nm1d2 = (n - 1) / 2;
+      nm1d2 = (n - 1) >> 1;
       for (k = 0; k <= nm1d2 - 2; k++) {
         y_data[k + 1] = a + ((double)k + 1.0);
         y_data[(n - k) - 2] = apnd - ((double)k + 1.0);

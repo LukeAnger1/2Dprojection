@@ -84,15 +84,15 @@ static void c_FFTImplementationCallback_doH(const emxArray_real_T *x,
   costab_data = costab->data;
   y_data = y->data;
   x_data = x->data;
-  nRows_tmp = unsigned_nRows / 2;
+  nRows_tmp = (unsigned_nRows + (unsigned_nRows < 0)) >> 1;
   iheight = y->size[0];
   if (iheight > nRows_tmp) {
     iheight = nRows_tmp;
   }
   istart = iheight - 2;
   ihi = nRows_tmp - 2;
-  nRowsD2_tmp = nRows_tmp / 2;
-  k = nRowsD2_tmp / 2;
+  nRowsD2_tmp = (nRows_tmp + (nRows_tmp < 0)) >> 1;
+  k = (nRowsD2_tmp + (nRowsD2_tmp < 0)) >> 1;
   hszCostab = (int)((unsigned int)costab->size[1] >> 1);
   emxInit_real_T(&hcostab, 2);
   j = hcostab->size[0] * hcostab->size[1];
@@ -173,7 +173,7 @@ static void c_FFTImplementationCallback_doH(const emxArray_real_T *x,
   if (iheight > unsigned_nRows) {
     iheight = unsigned_nRows;
   }
-  hszCostab = iheight / 2;
+  hszCostab = (iheight + (iheight < 0)) >> 1;
   for (i = 0; i < hszCostab; i++) {
     j = xoffInit + (i << 1);
     y_data[bitrevIndex_data[i] - 1].re = x_data[j];
@@ -241,7 +241,7 @@ static void c_FFTImplementationCallback_doH(const emxArray_real_T *x,
       }
       istart++;
     }
-    k /= 2;
+    k >>= 1;
     hszCostab = ju;
     ju += ju;
     iheight -= hszCostab;
@@ -390,7 +390,7 @@ static void d_FFTImplementationCallback_doH(
   wwc_data = wwc->data;
   y_data = y->data;
   x_data = x->data;
-  hnRows = nRows / 2;
+  hnRows = (nRows + (nRows < 0)) >> 1;
   emxInit_creal_T(&ytmp, 1);
   minHnrowsNxBy2 = ytmp->size[0];
   ytmp->size[0] = hnRows;
@@ -418,7 +418,8 @@ static void d_FFTImplementationCallback_doH(
   }
   nd2 = nRows << 1;
   e = 6.2831853071795862 / (double)nd2;
-  istart = nd2 / 2 / 2;
+  minHnrowsNxBy2 = (nd2 + (nd2 < 0)) >> 1;
+  istart = (minHnrowsNxBy2 + (minHnrowsNxBy2 < 0)) >> 1;
   emxInit_real_T(&costab1q, 2);
   minHnrowsNxBy2 = costab1q->size[0] * costab1q->size[1];
   costab1q->size[0] = 1;
@@ -526,7 +527,7 @@ static void d_FFTImplementationCallback_doH(
   if (j > nRows) {
     j = nRows;
   }
-  minHnrowsNxBy2 = j / 2 - 1;
+  minHnrowsNxBy2 = ((j + (j < 0)) >> 1) - 1;
   for (ju = 0; ju <= minHnrowsNxBy2; ju++) {
     temp_re_tmp = (hnRows + ju) - 1;
     temp_re = wwc_data[temp_re_tmp].re;
@@ -563,7 +564,7 @@ static void d_FFTImplementationCallback_doH(
       ytmp_data[i - 1].im = 0.0;
     }
   }
-  nfft_tmp = nfft / 2;
+  nfft_tmp = (nfft + (nfft < 0)) >> 1;
   emxInit_creal_T(&fy, 1);
   minHnrowsNxBy2 = fy->size[0];
   fy->size[0] = nfft_tmp;
@@ -584,8 +585,8 @@ static void d_FFTImplementationCallback_doH(
     j = nfft_tmp;
   }
   minHnrowsNxBy2 = nfft_tmp - 2;
-  nRowsD2 = nfft_tmp / 2;
-  k = nRowsD2 / 2;
+  nRowsD2 = (nfft_tmp + (nfft_tmp < 0)) >> 1;
+  k = (nRowsD2 + (nRowsD2 < 0)) >> 1;
   nd2 = 0;
   ju = 0;
   for (i = 0; i <= j - 2; i++) {
@@ -652,7 +653,7 @@ static void d_FFTImplementationCallback_doH(
       }
       istart++;
     }
-    k /= 2;
+    k >>= 1;
     nd2 = minHnrowsNxBy2;
     minHnrowsNxBy2 += minHnrowsNxBy2;
     ju -= nd2;
@@ -770,8 +771,8 @@ static void d_FFTImplementationCallback_r2b(const emxArray_creal_T *x,
     iDelta2 = unsigned_nRows;
   }
   iheight = unsigned_nRows - 2;
-  nRowsD2 = unsigned_nRows / 2;
-  k = nRowsD2 / 2;
+  nRowsD2 = (unsigned_nRows + (unsigned_nRows < 0)) >> 1;
+  k = (nRowsD2 + (nRowsD2 < 0)) >> 1;
   iy = 0;
   ju = 0;
   for (i = 0; i <= iDelta2 - 2; i++) {
@@ -842,7 +843,7 @@ static void d_FFTImplementationCallback_r2b(const emxArray_creal_T *x,
       }
       ju++;
     }
-    k /= 2;
+    k >>= 1;
     iy = iDelta2;
     iDelta2 += iDelta2;
     iheight -= iy;
@@ -883,7 +884,7 @@ void c_FFTImplementationCallback_dob(const emxArray_real_T *x, int n2blue,
   x_data = x->data;
   emxInit_creal_T(&wwc, 1);
   if ((nfft != 1) && (((unsigned int)nfft & 1U) == 0U)) {
-    nRows = nfft / 2;
+    nRows = (nfft + (nfft < 0)) >> 1;
     nInt2m1 = (nRows + nRows) - 1;
     i = wwc->size[0];
     wwc->size[0] = nInt2m1;
@@ -1063,7 +1064,8 @@ void c_FFTImplementationCallback_gen(int nRows, bool useRadix2,
   int n;
   int nd2;
   e = 6.2831853071795862 / (double)nRows;
-  n = nRows / 2 / 2;
+  nd2 = (nRows + (nRows < 0)) >> 1;
+  n = (nd2 + (nd2 < 0)) >> 1;
   emxInit_real_T(&costab1q, 2);
   nd2 = costab1q->size[0] * costab1q->size[1];
   costab1q->size[0] = 1;
@@ -1445,7 +1447,8 @@ void d_FFTImplementationCallback_gen(int nRows, bool useRadix2,
   int n;
   int nd2;
   e = 6.2831853071795862 / (double)nRows;
-  n = nRows / 2 / 2;
+  nd2 = (nRows + (nRows < 0)) >> 1;
+  n = (nd2 + (nd2 < 0)) >> 1;
   emxInit_real_T(&costab1q, 2);
   nd2 = costab1q->size[0] * costab1q->size[1];
   costab1q->size[0] = 1;
@@ -1786,8 +1789,8 @@ void e_FFTImplementationCallback_r2b(const emxArray_creal_T *x, int n1_unsigned,
         j = iy;
       }
       iheight = n1_unsigned - 2;
-      nRowsD2 = n1_unsigned / 2;
-      k = nRowsD2 / 2;
+      nRowsD2 = (n1_unsigned + (n1_unsigned < 0)) >> 1;
+      k = (nRowsD2 + (nRowsD2 < 0)) >> 1;
       iy = 0;
       ju = 0;
       for (b_i = 0; b_i <= j - 2; b_i++) {
@@ -1850,7 +1853,7 @@ void e_FFTImplementationCallback_r2b(const emxArray_creal_T *x, int n1_unsigned,
           }
           ju++;
         }
-        k /= 2;
+        k >>= 1;
         iy = iDelta2;
         iDelta2 += iDelta2;
         iheight -= iy;
@@ -1946,8 +1949,8 @@ void f_FFTImplementationCallback_r2b(const emxArray_creal_T *x, int n1_unsigned,
         istart = iy;
       }
       iDelta2 = n1_unsigned - 2;
-      nRowsD2 = n1_unsigned / 2;
-      k = nRowsD2 / 2;
+      nRowsD2 = (n1_unsigned + (n1_unsigned < 0)) >> 1;
+      k = (nRowsD2 + (nRowsD2 < 0)) >> 1;
       iy = 0;
       ju = 0;
       for (b_i = 0; b_i <= istart - 2; b_i++) {
@@ -2010,7 +2013,7 @@ void f_FFTImplementationCallback_r2b(const emxArray_creal_T *x, int n1_unsigned,
           }
           istart++;
         }
-        k /= 2;
+        k >>= 1;
         iy = iDelta2;
         iDelta2 += iDelta2;
         ju -= iy;
